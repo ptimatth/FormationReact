@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
 import './network-state.css';
+import PropTypes from 'prop-types';
 
 class NetworkStateContainer extends Component{
 
+    static propTypes = {
+        children: PropTypes.any.isRequired
+    }
 
     constructor(props) {
         super(props);
@@ -36,7 +40,6 @@ class NetworkStateContainer extends Component{
 
 
     render(){
-        console.log(this.props.children);
         const offlineCalque = (
             <div className="NetworkState">
                 <div>OFFLINE</div>

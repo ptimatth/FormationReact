@@ -1,7 +1,12 @@
 import React from 'react';
 import './item-formation.css';
-
+import PropTypes from 'prop-types';
 class ItemFormation extends React.Component {
+
+    static propTypes = {
+        name: PropTypes.string.isRequired
+    }
+     
     constructor(props){
         super(props);
 
@@ -23,7 +28,7 @@ class ItemFormation extends React.Component {
     }
 
     render(){
-        if(!this.props.name.toLowerCase().includes("angular")){
+        if(this.props.name && !this.props.name.toLowerCase().includes("angular")){
             return(
                 <div className="ItemFormation-container" onClick={this.showAlert}>
                     {this.props.name}
