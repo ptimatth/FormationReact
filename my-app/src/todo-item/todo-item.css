@@ -1,0 +1,12 @@
+.TodoItem {
+    display: flex;
+    flex-direction: row;
+    margin: 1px;
+    border: solid 1px black;
+    border-radius: 1px;
+    padding: 1rem;
+}
+
+.TodoItem-title.is-done {
+    text-decoration: line-through;
+}

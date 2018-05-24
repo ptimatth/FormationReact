@@ -1,0 +1,10 @@
+.TodoForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.TodoForm-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
