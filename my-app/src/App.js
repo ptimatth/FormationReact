@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import ListeFormation from './liste-formation/liste-formation';
-import NetworkState from './network-state/network-state';
+import NetworkStateContainer from './network-state/network-state';
 
 function App() {
     const listeFormation = [
@@ -31,9 +31,11 @@ function App() {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <div className="App-liste">
-          <ListeFormation listeFormation={listeFormation} />
+          <NetworkStateContainer >
+            <ListeFormation listeFormation={listeFormation} />
+          </NetworkStateContainer>
         </div>
-        <NetworkState />
+        
       </div>
     );
 }

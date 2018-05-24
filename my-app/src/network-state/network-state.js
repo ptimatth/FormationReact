@@ -1,13 +1,13 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './network-state.css';
 
-class NetworkState extends React.Component{
+class NetworkStateContainer extends Component{
 
 
     constructor(props) {
         super(props);
         this.state = {
-            online: true
+            online: navigator.onLine
         };
 
     }
@@ -36,17 +36,24 @@ class NetworkState extends React.Component{
 
 
     render(){
-        if(!this.state.online ) {
-            return (
-                <div className="NetworkState">
-                    <div>OFFLINE</div>
+        console.log(this.props.children);
+        const offlineCalque = (
+            <div className="NetworkState">
+                <div>OFFLINE</div>
+            </div>
+        );
+
+        return (
+            <div>
+                <div>
+                    {this.props.children}
                 </div>
-            );
-        } else {
-            return null;
-        }
+                {!this.state.online && offlineCalque }
+            </div>
+            
+        );
     }
    
 }
 
-export default NetworkState;
+export default NetworkStateContainer;
