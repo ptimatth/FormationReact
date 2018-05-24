@@ -1,8 +1,0 @@
-.ItemFormation-container{
-    display: flex;
-    flex: 1 0 0;
-    flex-direction: column;
-    border: solid 2px greenyellow;
-    padding: 2rem;
-    margin-top: 1rem;
-}

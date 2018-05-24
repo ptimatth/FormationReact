@@ -1,41 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import ListeFormation from './liste-formation/liste-formation';
-import NetworkState from './network-state/network-state';
+import SubscriptionForm from './subscription-form/subscription-form';
 
-function App() {
-    const listeFormation = [
-      {
-        id:1, 
-        name:"React.js"
-      },
-      {
-        id:2, 
-        name:"React Native"
-      },
-      {
-        id:3, 
-        name:"Angular"
-      },
-      {
-        id:4, 
-        name:"TypeScript"
-      }
-    ]
-
+class App extends Component {
+  render() {
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <div className="App-liste">
-          <ListeFormation listeFormation={listeFormation} />
+        <div className="App-form">
+          <SubscriptionForm title="Formulaire d'inscription"/>
         </div>
-        <NetworkState />
       </div>
     );
+  }
 }
 
 export default App;
