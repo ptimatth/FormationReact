@@ -1,0 +1,11 @@
+.ListeFormation-container{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+.ListeFormation-title{
+    border: solid 2px red;
+    padding: 1rem;
+    flex: 1 0 0;
+}
