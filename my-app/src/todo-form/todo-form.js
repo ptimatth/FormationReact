@@ -7,10 +7,28 @@ class TodoForm extends Component {
     super(props);
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+
+    this.state = {
+      title : ''
+    }
+
   }
 
   handleSubmit(e){
-    e.prenventDefault();
+    console.log(e.target);
+    e.preventDefault();
+    const item = {isDone: false, title: this.state.title};
+    this.props.addItem(item);
+    this.setState({
+      title: ''
+    });
+  }
+
+  handleChange(e){
+    this.setState({
+      title: e.target.value
+    });
   }
 
   render() {
@@ -18,7 +36,7 @@ class TodoForm extends Component {
       <form className="TodoForm" onSubmit={this.handleSubmit}>
         <div className="TodoForm-group">
           <label>Titre du todo:</label>
-          <input type="text" />
+          <input type="text" value={this.state.title} onChange={this.handleChange} />
         </div>
         <div className="TodoForm-button">
           <input type="submit" />

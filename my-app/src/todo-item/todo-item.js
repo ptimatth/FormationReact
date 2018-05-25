@@ -22,7 +22,6 @@ class TodoItem extends Component {
   }
 
   toggleChecked(e){
-    console.log(e);
     this.setState({
       isDone: !this.state.isDone
     })
@@ -32,7 +31,7 @@ class TodoItem extends Component {
   render() {
     return (
       <div className="TodoItem">
-        <input type="checkbox" checked={this.state.isDone} onClick={this.toggleChecked} />
+        <input type="checkbox" checked={this.state.isDone} onChange={this.toggleChecked} />
         <div className={ this.state.isDone ? "TodoItem-title is-done": "TodoItem-title"}>{this.props.item.title.toUpperCase()}</div>
       </div>
     );

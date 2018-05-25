@@ -4,6 +4,7 @@ import todoItems from './mock/todo-items.json';
 import './App.css';
 import TodoList from './todo-list/todo-list';
 import TodoForm from './todo-form/todo-form';
+import TodoContainer from './todo-container/todo-container';
 
 class App extends Component {
   render() {
@@ -14,8 +15,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <div className="App-list">        
-          <TodoList items={todoItems}/>
-          <TodoForm />
+          <TodoContainer items={todoItems}/>
         </div>
       </div>
     );
