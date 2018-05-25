@@ -1,70 +1,41 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Route,
-  Link
+  Switch
 } from 'react-router-dom';
+import Home from './home/home';
+import Params from './params/params';
+import Hierarchical from './hierarchical/hierarchical';
+import About from './about/about';
+import Header from './header/header';
+import Footer from './footer/footer';
+import './App.css';
+import { Contact } from './contact/contact';
 
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-);
+class App extends Component {
+  render () {
+    return (
+      <BrowserRouter>
+        <div className="App">
+          <div className="App-header">
+            <Header />
+          </div>
+          <div className="App-content">
+            <Switch>
+              <Route exact path="/" component={Home}/>
+              <Route path="/about" component={About}/>
+              <Route path="/contact/:contact_id" component={Contact}/>
+              <Route path="/contact" component={Contact}/>
+            </Switch>
+          </div>
+          <div className="App-footer">
+            <Footer />
+          </div>
+        </div>
+      </BrowserRouter>
+    );
+  }
+}
 
-const About = () => (
-  <div>
-    <h2>About</h2>
-  </div>
-);
-const Topic = ({ match }) => (
-  <div>
-    <h3>{match.params.topicId}</h3>
-  </div>
-);
-
-const Topics = ({ match }) => (
-  <div>
-    <h2>Topics</h2>
-    <ul>
-      <li>
-        <Link to={`${match.url}/rendering`}>
-          ENI - Nantes - Rennes - Niort - Nice - Paris
-          © 2018, ENI Services. Tous droits réservés. 47
-          Rendering with React
-        </Link>
-      </li>
-      <li>
-        <Link to={`${match.url}/components`}>
-          Components
-        </Link>
-      </li>
-      <li>
-        <Link to={`${match.url}/props-v-state`}>
-          Props v. State
-        </Link>
-      </li>
-    </ul>
-    <Route path={`${match.path}/:topicId`} component={Topic}/>
-    <Route exact path={match.path} render={() => (
-      <h3>Please select a topic.</h3>
-    )}/>
-  </div>
-);
-
-
-const BasicExample = () => (
-  <Router>
-    <div>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/topics">Topics</Link></li>
-      </ul>
-      <hr/>
-      <Route exact path="/" component={Home}/>
-      <Route path="/about" component={About}/>
-      <Route path="/topics" component={Topics}/>
-    </div>
-  </Router>
-)
-export default BasicExample
+export default App

@@ -1,0 +1,53 @@
+.Contact {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.Contact-menu {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 auto;
+    padding: 1rem;
+
+}
+
+.Contact-menu-item {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    border: solid 1px black;
+    margin-top: 0.2rem;
+}
+
+.Contact-menu-item:first-of-type {
+    margin-top: 0rem;
+}
+
+.Contact-item {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    border: solid 1px black;
+    justify-content: space-around;
+}
+
+.Contact-item-group {
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.Contact-item-group> label {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    flex: 0 1 20%;
+}
+
+.Contact-item-nom {
+    font-size: 2rem;
+    color: red;
+}
