@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TodoList from './todo-list';
+import TodoList from './todo-container';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

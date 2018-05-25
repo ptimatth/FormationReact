@@ -13,11 +13,10 @@ export function addTodo(title) {
 }
 
 export function editTodo(todo, todoList) {
-  console.log(todoList);
-  todo.isDone = !todo.isDone;
+  const newTodo = { ...todo, isDone: !todo.isDone };
   const newTodoList = todoList.filter(todoItem => todoItem.id === todo.id)
     .sort((a, b) => a.id - b.id);
-  newTodoList.push(todo);
+  newTodoList.push(newTodo);
   return {
     type: EDIT_TODO,
     list: newTodoList,

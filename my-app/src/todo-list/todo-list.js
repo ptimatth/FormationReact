@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import './todo-list.css';
 import PropTypes from 'prop-types';
+
+import './todo-list.css';
 import TodoItem from '../todo-item/todo-item';
 
 class TodoList extends Component {
@@ -9,7 +10,8 @@ class TodoList extends Component {
       id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
       isDone: PropTypes.bool.isRequired,
-    })),
+    })).isRequired,
+    updateItem: PropTypes.func.isRequired,
   }
 
   constructor(props) {
@@ -28,7 +30,10 @@ class TodoList extends Component {
           <h2>Liste des choses à faire</h2>
         </div>
         <div className="TodoList-items">
-          {this.props.items.map((item, index) => <TodoItem item={item} key={`todo-id-${index}`} updateItem={this.updateItem} />)}
+          {
+            this.props.items
+              .map(item => <TodoItem item={item} key={item.id} updateItem={this.updateItem} />)
+          }
         </div>
       </div>
     );

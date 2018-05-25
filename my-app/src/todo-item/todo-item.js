@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import './todo-item.css';
 import PropTypes from 'prop-types';
+
+import './todo-item.css';
 
 class TodoItem extends Component {
   static propTypes ={
@@ -9,6 +10,7 @@ class TodoItem extends Component {
       title: PropTypes.string.isRequired,
       isDone: PropTypes.bool.isRequired,
     }).isRequired,
+    updateItem: PropTypes.func.isRequired,
   }
 
 

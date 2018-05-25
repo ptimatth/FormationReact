@@ -21,20 +21,17 @@ export function TodosReducer(state = initialState, action) {
           newTodo,
         ],
       };
-      break;
     case EDIT_TODO:
       return {
         ...state,
         list: action.list,
       };
-      break;
     case LOAD_TODO:
       return {
         ...state,
         loading: true,
         loaded: false,
       };
-      break;
     case TODO_LOADED:
       return {
         ...state,
@@ -42,7 +39,6 @@ export function TodosReducer(state = initialState, action) {
         loading: false,
         loaded: true,
       };
-      break;
     default:
       return state;
   }

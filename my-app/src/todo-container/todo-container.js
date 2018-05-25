@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './todo-container.css';
 import PropTypes from 'prop-types';
 import TodoList from '../todo-list/todo-list';
 import TodoForm from '../todo-form/todo-form';
+import './todo-container.css';
 
 import { addTodo, editTodo, loadTodo } from '../redux/todo.action';
 
@@ -18,8 +18,8 @@ export class TodoContainer extends Component {
     addTodo: PropTypes.func.isRequired,
     editTodo: PropTypes.func.isRequired,
     loadTodo: PropTypes.func.isRequired,
-
   }
+
   constructor(props) {
     super(props);
     this.updateItem = this.updateItem.bind(this);

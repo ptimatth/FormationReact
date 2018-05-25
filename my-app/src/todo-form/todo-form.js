@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './todo-form.css';
 
 class TodoForm extends Component {
+  static propTypes ={
+    addItem: PropTypes.func.isRequired,
+
+  }
+
   constructor(props) {
     super(props);
 
@@ -14,7 +20,6 @@ class TodoForm extends Component {
   }
 
   handleSubmit(e) {
-    console.log(e.target);
     e.preventDefault();
     const item = { isDone: false, title: this.state.title };
     this.props.addItem(item);
@@ -31,7 +36,7 @@ class TodoForm extends Component {
     return (
       <form className="TodoForm" onSubmit={this.handleSubmit}>
         <div className="TodoForm-group">
-          <label>Titre du todo:</label>
+          <div>Titre du todo:</div>
           <input type="text" value={this.state.title} onChange={this.handleChange} />
         </div>
         <div className="TodoForm-button">
