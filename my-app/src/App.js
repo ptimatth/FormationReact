@@ -7,6 +7,7 @@ import './App.css';
 import ListeFormation from './liste-formation/liste-formation';
 import NetworkStateContainer from './network-state/network-state';
 import { FormationsReducer } from './redux/formations/formations.reducer';
+import thunk from 'redux-thunk';
 
 // Assemblage des différents reducers d'une application
 const reducers = combineReducers({
@@ -17,7 +18,7 @@ const logger = createLogger({
   level: 'log',
 });
 
-const store = createStore(reducers, applyMiddleware(logger));
+const store = createStore(reducers, applyMiddleware(thunk, logger));
 
 function App() {
     return (

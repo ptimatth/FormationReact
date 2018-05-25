@@ -1,25 +1,9 @@
-import {ADD_FORMATION} from './formations.action'
-export const listeFormation = [
-    {
-      id:1, 
-      name:"React.js"
-    },
-    {
-      id:2, 
-      name:"React Native"
-    },
-    {
-      id:3, 
-      name:"Angular"
-    },
-    {
-      id:4, 
-      name:"TypeScript"
-    }
-];
+import {ADD_FORMATION, LOAD_FORMATIONS, FORMATIONS_LOADED} from './formations.action';
 
 export const initialState = {
-    list: listeFormation
+    list: [],
+    loading: false,
+    loaded: false
 };
 
 export function FormationsReducer (state = initialState, action) {
@@ -32,6 +16,19 @@ export function FormationsReducer (state = initialState, action) {
             return {
                 ...state,
                 list: [...state.list, formation],
+            }
+        case LOAD_FORMATIONS: 
+            return {
+                ...state,
+                loading: true,
+                loaded : false
+            }
+        case FORMATIONS_LOADED: 
+            return {
+                ...state,
+                list : action.list,
+                loading: false,
+                loaded : true,
             }
         default: 
             return state;
