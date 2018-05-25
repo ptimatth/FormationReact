@@ -1,34 +1,30 @@
 import React, { Component } from 'react';
 import './todo-form.css';
-import PropTypes from 'prop-types';
 
 class TodoForm extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
 
     this.state = {
-      title : ''
-    }
-
+      title: '',
+    };
   }
 
-  handleSubmit(e){
+  handleSubmit(e) {
     console.log(e.target);
     e.preventDefault();
-    const item = {isDone: false, title: this.state.title};
+    const item = { isDone: false, title: this.state.title };
     this.props.addItem(item);
-    this.setState({
-      title: ''
-    });
   }
 
-  handleChange(e){
+  handleChange(e) {
     this.setState({
-      title: e.target.value
+      title: e.target.value,
     });
+    e.preventDefault();
   }
 
   render() {
