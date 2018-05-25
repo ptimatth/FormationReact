@@ -3,8 +3,6 @@ import { combineReducers, createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
-
-
 import logo from './logo.svg';
 import todoItems from './mock/todo-items.json';
 import './App.css';
